@@ -22,7 +22,6 @@ module-whatis "Adds cytofpipe (v2.0) to your environment."
 set              cytofpipe_home    /shared/ucl/depts/cancer/apps/cytofpipe/v2.0
 setenv           CYTOFPIPE_HOME    $cytofpipe_home
 
-prepend-path     PATH              $::env(MODULESHOME)/bin
 prepend-path     PATH              $cytofpipe_home
 
 set-alias        cytofpipe         "qsub -v CYTOFPIPE_HOME=${cytofpipe_home} $cytofpipe_home/cytofpipe.qsub"

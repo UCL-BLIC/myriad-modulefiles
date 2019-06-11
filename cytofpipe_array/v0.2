@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by J.H. and L.C. on Legion on 2019-06-10
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the cytofpipe_array package to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "The cytofpipe pipeline was developed by Lucia Conde at the BLIC in"
+    puts stderr "collaboration with Jake Henry for the automatic analysis"
+    puts stderr "of CyToF and Flow data. Cytofpipe_array submits a job array of"
+    puts stderr "cytofpipe runs and generates summary files"
+    puts stderr ""
+    puts stderr "NOTE:  This is version v0.2 (runs cytofpipe/v2.0)"
+    puts stderr ""
+}
+
+module-whatis "Adds cytofpipe_array (v0.2 version) to your environment."
+
+set              cytofpipe_home    /shared/ucl/depts/cancer/apps/cytofpipe/v2.0
+set              cytofpipe_array_home    /shared/ucl/depts/cancer/apps/cytofpipe_array/v0.2
+setenv           CYTOFPIPE_HOME    $cytofpipe_home
+setenv           CYTOFPIPE_ARRAY_HOME    $cytofpipe_array_home
+
+prepend-path     PATH              $cytofpipe_home
+
+set-alias        cytofpipe_array         "perl $cytofpipe_array_home/cytofpipe_array.pl" 
+
+
