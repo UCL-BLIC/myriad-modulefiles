@@ -9,16 +9,16 @@ proc ModulesHelp { } {
     puts stderr "This module adds ginkgo to your environment."
     puts stderr ""
     puts stderr ""
-    puts stderr "NOTE:  This is version from GitHub commit in 05/2019"
+    puts stderr "NOTE:  This is version from GitHub commit in 08/2019"
     puts stderr ""
 }
 
-module-whatis "Adds ginkgo (05/2019 version) to your environment."
+module-whatis "Adds ginkgo (08/2019 version) to your environment."
 
 module load r/recommended
 
 
-set              ginkgo_home     /shared/ucl/depts/cancer/apps/ginkgo/v052019/
+set              ginkgo_home     /shared/ucl/depts/cancer/apps/ginkgo/v082019/
 
 setenv           GINKGO_HOME     $ginkgo_home
 setenv           R_LIBS          ${ginkgo_home}/R
