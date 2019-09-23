@@ -1,0 +1,36 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Legion on 23/09/2019
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Sarek to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is version 2.2.1 running on nextflow 19.01.0.5050"
+    puts stderr ""
+}
+
+module-whatis "Adds Sarek v2.2.1 (with nextflow 19.01.0.5050) to your environment."
+
+module load blic-modules
+module load nextflow
+
+set              nextflow_home      /shared/ucl/depts/cancer/apps/nextflow/19.01.0.5050/
+set              sarek_home         /shared/ucl/depts/cancer/apps/nextflow_pipelines/Sarek/Sarek_v2.2.1/
+
+setenv           NEXTFLOW_HOME     $nextflow_home
+setenv           SAREK_HOME        $sarek_home
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              $nextflow_home
+prepend-path     PATH              $sarek_home
+
+set-alias        sarek_main                     "nextflow run $sarek_home/main.nf -profile myriad" 
+set-alias	 sarek_germlineVC	        "nextflow run $sarek_home/germlineVC.nf -profile myriad"
+set-alias        sarek_somaticVC                "nextflow run $sarek_home/somaticVC.nf -profile myriad"
+set-alias        sarek_annotate                 "nextflow run $sarek_home/annotate.nf -profile myriad"
+set-alias        sarek_runMultiQC               "nextflow run $sarek_home/runMultiQC -profile myriad"
+

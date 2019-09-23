@@ -1,0 +1,40 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 23-09-2019
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nextflow to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is version 19.07.0.5106"
+    puts stderr ""
+}
+
+module-whatis "Adds nextflow (19.07.0.5106 version) to your environment."
+
+module unload java
+module load java/1.8.0_92
+
+
+set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/19.07.0.5106/
+set              nextflow_pipelines     /shared/ucl/depts/cancer/apps/nextflow_pipelines
+
+setenv           NEXTFLOW_HOME     $nextflow_home
+setenv           NEXTFLOW_PIPELINES     $nextflow_pipelines
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              $nextflow_home
+prepend-path     PATH              $nextflow_pipelines
+
+
+set-alias        nextflow_chipseq         "nextflow run $nextflow_pipelines/chipseq -profile myriad" 
+set-alias	 nextflow_exoseq	  "nextflow run $nextflow_pipelines/NGI-ExoSeq -profile myriad"
+set-alias        nextflow_rnaseq          "nextflow run $nextflow_pipelines/rnaseq -profile myriad"
+set-alias        nextflow_mergefastq      "nextflow run $nextflow_pipelines/merge_fastq -profile myriad"
+set-alias        nextflow_dge      	  "nextflow run $nextflow_pipelines/DGE -profile myriad"
+set-alias        nextflow_wgsalign    	  "nextflow run $nextflow_pipelines/wgsalign -profile myriad"
+set-alias        nextflow_rnaseq_variant_calling      "nextflow run $nextflow_pipelines/rnaseq_variant_calling -profile myriad"
+
