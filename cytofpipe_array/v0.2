@@ -2,7 +2,7 @@
 ##
 ## modulefile
 ##
-## Built by J.H. and L.C. on Legion on 2019-06-10
+## Built by J.H. and L.C. on Legion on 2019-10-15
 
 proc ModulesHelp { } {
 
@@ -14,13 +14,13 @@ proc ModulesHelp { } {
     puts stderr "of CyToF and Flow data. Cytofpipe_array submits a job array of"
     puts stderr "cytofpipe runs and generates summary files"
     puts stderr ""
-    puts stderr "NOTE:  This is version v0.2 (runs cytofpipe/v2.0)"
+    puts stderr "NOTE:  This is version v0.2 (runs cytofpipe/v2.1)"
     puts stderr ""
 }
 
 module-whatis "Adds cytofpipe_array (v0.2 version) to your environment."
 
-set              cytofpipe_home    /shared/ucl/depts/cancer/apps/cytofpipe/v2.0
+set              cytofpipe_home    /shared/ucl/depts/cancer/apps/cytofpipe/v2.1
 set              cytofpipe_array_home    /shared/ucl/depts/cancer/apps/cytofpipe_array/v0.2
 setenv           CYTOFPIPE_HOME    $cytofpipe_home
 setenv           CYTOFPIPE_ARRAY_HOME    $cytofpipe_array_home
