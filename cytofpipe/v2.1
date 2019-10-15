@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by J.H. and L.C. on Legion on 2019-10-15
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the cytofpipe package to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "This pipeline was developed by Lucia Conde at the BLIC in"
+    puts stderr "collaboration with Jake Henry for the automatic analysis"
+    puts stderr "of CyToF and Flow data."
+    puts stderr ""
+    puts stderr "NOTE:  This is version v2.1"
+    puts stderr ""
+}
+
+module-whatis "Adds cytofpipe (v2.1) to your environment."
+
+set              cytofpipe_home    /shared/ucl/depts/cancer/apps/cytofpipe/v2.1
+setenv           CYTOFPIPE_HOME    $cytofpipe_home
+
+prepend-path     PATH              $cytofpipe_home
+
+set-alias        cytofpipe         "qsub -v CYTOFPIPE_HOME=${cytofpipe_home} $cytofpipe_home/cytofpipe.qsub"
+
