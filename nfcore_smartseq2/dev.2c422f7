@@ -1,0 +1,34 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2020-June-03
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nextflow and the nf-core smartseq2 pipeline to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is nextflow version 19.10.0.5170"
+    puts stderr ""
+}
+
+module-whatis "Adds nextflow (19.10.0.5170 version) and the nf-core smartseq pipeline (dev - commit 2c422f7 version) to your environment."
+
+module unload java
+module load java/1.8.0_92
+module load nextflow/19.10.0.5170
+
+
+set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/19.10.0.5170/
+set              smartseq2_pipeline     /shared/ucl/depts/cancer/apps/nextflow_pipelines/smartseq2/dev.2c422f7/
+
+setenv           NEXTFLOW_HOME     $nextflow_home
+setenv           SMARTSEQ2_PIPELINE     $smartseq2_pipeline
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              $nextflow_home
+prepend-path     PATH              $smartseq2_pipeline
+
+
+set-alias        nfcore_smartseq2      "nextflow run $smartseq2_pipeline -profile myriad"
