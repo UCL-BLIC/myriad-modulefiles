@@ -1,0 +1,34 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2020-Aug-19
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nextflow and the nf-core nascent pipeline to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is nextflow version 19.10.0.5170"
+    puts stderr ""
+}
+
+module-whatis "Adds nextflow (19.10.0.5170 version) and the nf-core nascent pipeline (1.0 version) to your environment."
+
+module unload java
+module load java/1.8.0_92
+module load nextflow/19.10.0.5170
+
+
+set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/19.10.0.5170/
+set              sarek_pipeline     /home/regmr01/apps/nextflow_pipelines/nfcore_nascent/nascent-1.0/
+
+setenv           NEXTFLOW_HOME     $nextflow_home
+setenv           NASCENT_PIPELINE     $nascent_pipeline
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              $nextflow_home
+prepend-path     PATH              $nascent_pipeline
+
+
+set-alias        nfcore_nascent      "nextflow run $nascent_pipeline -profile myriad"
