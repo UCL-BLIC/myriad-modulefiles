@@ -21,7 +21,7 @@ module load nextflow/19.10.0.5170
 
 
 set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/19.10.0.5170/
-set              nascent_pipeline     /home/regmr01/apps/nextflow_pipelines/nfcore_nascent/nascent-1.0/
+set              nascent_pipeline     /shared/ucl/depts/cancer/apps/nextflow_pipelines/nfcore_nascent/nascent-1.0/
 
 setenv           NEXTFLOW_HOME     $nextflow_home
 setenv           NASCENT_PIPELINE     $nascent_pipeline
