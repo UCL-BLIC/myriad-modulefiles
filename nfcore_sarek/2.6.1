@@ -2,25 +2,25 @@
 ##
 ## modulefile
 ##
-## L.C. on Myriad on 2020-Julu-24
+## L.C. on Myriad on 2020-Sep-11
 
 proc ModulesHelp { } {
 
     puts stderr "This module adds nextflow and the nf-core sarek pipeline to your environment."
     puts stderr ""
     puts stderr ""
-    puts stderr "NOTE:  This is nextflow version 19.10.0.5170"
+    puts stderr "NOTE:  This is nextflow version 20.07.1.5412"
     puts stderr ""
 }
 
-module-whatis "Adds nextflow (19.10.0.5170 version) and the nf-core sarek pipeline (2.6.1 version) to your environment."
+module-whatis "Adds nextflow (20.07.1.5412 version) and the nf-core sarek pipeline (2.6.1 version) to your environment."
 
 module unload java
 module load java/1.8.0_92
-module load nextflow/19.10.0.5170
+module load nextflow/20.07.1.5412
 
 
-set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/19.10.0.5170/
+set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/20.07.1.5412/
 set              sarek_pipeline     /shared/ucl/depts/cancer/apps/nextflow_pipelines/nfcore_sarek/sarek-2.6.1/
 
 setenv           NEXTFLOW_HOME     $nextflow_home
