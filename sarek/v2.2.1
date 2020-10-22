@@ -2,23 +2,23 @@
 ##
 ## modulefile
 ##
-## L.C. on Legion on 23/09/2019
+## L.C. on Legion on 23/09/2019 - changed to nextflow 20 on 22/10/20
 
 proc ModulesHelp { } {
 
     puts stderr "This module adds Sarek to your environment."
     puts stderr ""
     puts stderr ""
-    puts stderr "NOTE:  This is version 2.2.1 running on nextflow 19.01.0.5050"
+    puts stderr "NOTE:  This is version 2.2.1 running on nextflow 20.07.1.5412"
     puts stderr ""
 }
 
-module-whatis "Adds Sarek v2.2.1 (with nextflow 19.01.0.5050) to your environment."
+module-whatis "Adds Sarek v2.2.1 (with nextflow 20.07.1.5412) to your environment."
 
 module load blic-modules
-module load nextflow/19.01.0.5050
+module load nextflow/20.07.1.5412
 
-set              nextflow_home      /shared/ucl/depts/cancer/apps/nextflow/19.01.0.5050/
+set              nextflow_home      /shared/ucl/depts/cancer/apps/nextflow/20.07.1.5412/
 set              sarek_home         /shared/ucl/depts/cancer/apps/nextflow_pipelines/Sarek/Sarek_v2.2.1/
 
 setenv           NEXTFLOW_HOME     $nextflow_home

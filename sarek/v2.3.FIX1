@@ -2,7 +2,7 @@
 ##
 ## modulefile
 ##
-## L.C. on Legion on 23/09/2019
+## L.C. on Legion on 23/09/2019 - changed to nextflow 20 on 22/10/20
 
 proc ModulesHelp { } {
 
@@ -13,16 +13,19 @@ proc ModulesHelp { } {
     puts stderr ""
 }
 
-module-whatis "Adds Sarek v2.3.FIX1 (with nextflowv 19.01.0.5050) to your environment."
+module-whatis "Adds Sarek v2.3.FIX1 (with nextflowv 20.07.1.5412) to your environment."
 
 module load blic-modules
-module load nextflow/19.01.0.5050
+module load nextflow/20.07.1.5412
 
+set              nextflow_home      /shared/ucl/depts/cancer/apps/nextflow/20.07.1.5412/
 set              sarek_home         /shared/ucl/depts/cancer/apps/nextflow_pipelines/Sarek/Sarek_v2.3.FIX1/
 
+setenv           NEXTFLOW_HOME     $nextflow_home
 setenv           SAREK_HOME        $sarek_home
 
 prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              $nextflow_home
 prepend-path     PATH              $sarek_home
 
 set-alias        sarek_main                     "nextflow run $sarek_home/main.nf -profile ucl" 
