@@ -17,7 +17,7 @@ module-whatis "Adds nextflow (20.07.1.5412 version) and the nf-core nascent pipe
 
 module unload java
 module load java/1.8.0_92
-module laod blic-modules
+module load blic-modules
 module load nextflow/20.07.1.5412
 
 
