@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2022-03-03
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds mini pandoc 2.17.1.1 to your environment."
+    puts stderr ""
+    puts stderr "Note: these were installed with conda 4.8.3"
+}
+
+module-whatis "Adds installed bioconda packages (pandoc 2.17.1.1) to your environment."
+
+
+set root 			/shared/ucl/depts/cancer/apps/pandoc/pandoc-2.17.1.1
+
+prepend-path PATH              	 $::env(MODULESHOME)/bin
+prepend-path PATH    		$root/bin
+

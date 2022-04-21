@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by J.H. on Legion on 2018-03-13
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the ClusterFlow 0.5 package to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "See: "
+    puts stderr "http://clusterflow.io"
+    puts stderr ""
+}
+
+module-whatis "Adds ClusterFlow v0.5 to your environment."
+
+module load perl/5.22.0
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              /shared/ucl/depts/cancer/apps/clusterflow/0.5
+
+set-alias        qs                "cf --qstat"

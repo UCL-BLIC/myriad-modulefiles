@@ -1,0 +1,38 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2021-08-26
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the cpgBattenberg 3.5.3 package and Battenberg 2.2.10 to your environment."
+    puts stderr "It also adds loads the impute2 module."
+    puts stderr ""
+}
+
+module-whatis "Adds cpgBattenberg 3.5.3 (Battenberg 2.2.10)to your environment."
+
+module purge
+module load default
+module load gcc-libs/4.9.2 impute2/2.3.2
+
+
+set root 			/shared/ucl/depts/cancer/apps/cgpBattenberg/3.5.3
+
+prepend-path PATH              	$::env(MODULESHOME)/bin
+prepend-path PATH    		$root/dependenciesenv/bin
+prepend-path PATH    		$root/cgpBattenberg/bin
+prepend-path PERL5LIB		$root/cgpBattenberg/lib/perl5
+prepend-path PATH		$root/R/3.6.3/bin
+prepend-path R_LIBS_USER	$root/R/3.6.3/lib64/R/library
+
+
+
+set-alias battenberg_hg38Ref.pl "battenberg.pl
+				-impute-info /shared/ucl/depts/cancer/apps/cgpBattenberg/reference_files/battenberg_hg38/imputation/impute_info.txt
+				-thousand-genomes-loc /shared/ucl/depts/cancer/apps/cgpBattenberg/reference_files/battenberg_hg38/1000G_loci_hg38
+				-gc-correction-loc /shared/ucl/depts/cancer/apps/cgpBattenberg/reference_files/battenberg_hg38/GC_correction_hg38
+				-replic-timing-loc /shared/ucl/depts/cancer/apps/cgpBattenberg/reference_files/battenberg_hg38/RT_correction_hg38
+				-species Human -assembly 38"
+

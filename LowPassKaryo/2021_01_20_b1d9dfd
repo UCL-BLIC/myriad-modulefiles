@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2022-01-20
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the LowPassKaryo pipeline to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds LowPassKaryo (commit b1d9dfd) to your environment."
+
+module purge
+module load default
+
+
+set root 			/shared/ucl/depts/cancer/apps/LowPassKaryo/2021_01_20_b1d9dfd
+
+prepend-path PATH              	$::env(MODULESHOME)/bin
+prepend-path PATH    		$root/lowpasskaryoenv/bin
+prepend-path PATH    		$root/LowPassKaryo-master
+prepend-path R_LIBS_USER	$root/lowpasskaryodeps/lib/R/library
+
+
+

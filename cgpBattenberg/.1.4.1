@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2021-08-20
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the cpgBattenberg 1.4.1 package to your environment."
+    puts stderr "It also adds R and loads the impute2 module."
+    puts stderr ""
+    puts stderr "Note: these were installed with conda 4.8.3"
+}
+
+module-whatis "Adds installed bioconda packages (perl-sanger-cgp-battenberg) to your environment."
+
+
+module load gcc-libs/4.9.2 impute2/2.3.2
+
+set root 			/shared/ucl/depts/cancer/apps/cgpBattenberg/1.4.1/battenbergenv
+
+prepend-path PATH              	$::env(MODULESHOME)/bin
+prepend-path PATH    		$root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+
+###########prepend-path PERL5LIB		$root/lib/site_perl/5.26.2
+##############prepend-path PYTHONPATH         $root/lib/python2.7/site-packages
+

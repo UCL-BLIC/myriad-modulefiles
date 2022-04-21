@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2021-10-20
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the cnvkit package (v0.9.9) to your environment."
+    puts stderr ""
+    puts stderr "Note: these were installed with conda 4.8.3"
+}
+
+module-whatis "Adds cnvkit v0.9.9 to your environment."
+
+
+set root 			/shared/ucl/depts/cancer/apps/cnvkit/cnvkit-0.9.9
+
+prepend-path PATH              	 $::env(MODULESHOME)/bin
+prepend-path PATH    		$root/
+prepend-path PATH    		$root/scripts
+prepend-path PATH    		$root/cnvkitdeps/bin
+prepend-path LIBRARY_PATH       $root/cnvkitdeps/lib
+prepend-path PYTHONPATH         $root/cnvkitdeps/lib/python3.9/site-packages
+
+#####prepend-path LD_LIBRARY_PATH    $root/lib

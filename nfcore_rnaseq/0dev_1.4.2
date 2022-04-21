@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2020-June-25 - changed to nextflow 20 on 22/10/20
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nextflow and a modified version of the nf-core rnaseq 1.4.2 pipeline to your environment."
+    puts stderr "Changes include exposing additional STAR arguments, like --quantMode (to generate STARcounts), and --outFilterMultimapNmax 100 (for multi-mapping)"
+    puts stderr ""
+    puts stderr "NOTE:  This is nextflow version 20.07.1.5412"
+    puts stderr ""
+}
+
+module-whatis "Adds nextflow (20.07.1.5412 version) and the nf-core rnaseq pipeline (1.4.2 version) to your environment."
+
+module unload java
+module load java/1.8.0_92
+module load blic-modules
+module load nextflow/20.07.1.5412
+
+
+set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/20.07.1.5412/
+set              rnaseq_pipeline     /shared/ucl/depts/cancer/apps/nextflow_pipelines/nfcore_rnaseq/rnaseq-1.4.2_mod/
+
+setenv           NEXTFLOW_HOME     $nextflow_home
+setenv           RNASEQ_PIPELINE     $rnaseq_pipeline
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              $nextflow_home
+prepend-path     PATH              $rnaseq_pipeline
+
+
+set-alias        nfcore_rnaseq      "nextflow run $rnaseq_pipeline -profile myriad"

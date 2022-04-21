@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2020-11-06
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds all the packages installed via bioconda to your environment."
+    puts stderr "These include:"
+    puts stderr "	deepTools 3.1.2 (Oct 2018)"
+    puts stderr "	multiQC 1.6	(Oct 2018)"
+    puts stderr "	[...]"
+    puts stderr ""
+    puts stderr "Note: these were installed with conda 4.8.3"
+}
+
+module-whatis "Adds installed bioconda packages to your environment."
+
+
+set root 			/shared/ucl/depts/cancer/apps/miniconda/miniconda3_gatk4.1.9.0
+
+prepend-path PATH              	 $::env(MODULESHOME)/bin
+prepend-path PATH    		$root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path PYTHONPATH         $root/lib/python3.6/site-packages
+
