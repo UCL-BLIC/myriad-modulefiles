@@ -1,0 +1,37 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2022-4-21
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nextflow and an in-house nextflow pipeline to merge fastQ files to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is nextflow version 20.07.1.5412"
+    puts stderr ""
+}
+
+module-whatis "Adds nextflow (20.07.1.5412 version) and the nextflow mergefastq pipeline (1.0.0 version) to your environment."
+
+module unload java
+module load java/1.8.0_92
+module load blic-modules
+module load nextflow/20.07.1.5412
+
+
+set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/20.07.1.5412/
+set              mergefastq_pipeline     /shared/ucl/depts/cancer/apps/nextflow_pipelines/merge_fastq/
+
+setenv           NEXTFLOW_HOME     $nextflow_home
+setenv           MERGEFASTQ_PIPELINE     $mergefastq_pipeline
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              $nextflow_home
+prepend-path     PATH              $mergefastq_pipeline
+
+
+set-alias        nextflow_mergefastq      "nextflow run $mergefastq_pipeline -profile myriad"
+
+

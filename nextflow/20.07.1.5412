@@ -13,20 +13,20 @@ proc ModulesHelp { } {
     puts stderr ""
 }
 
+
 #puts stderr ""
 #puts stderr "!!!!!!!!!!!!!!!!!!! ATTENTION !!!!!!!!!!!!!!!!!!!"
 #puts stderr ""
 #puts stderr "This module loads nextflow 20.07.1.5412 to your environment."
 #puts stderr ""
-#puts stderr "It also gives you access to the *old* pipelines installed by the BLIC"
-#puts stderr "These are now deprecated and will be removed eventually."
+#puts stderr "This module also used to give you access to the *old* pipelines installed by the BLIC"
+#puts stderr "These are now deprecated and have been removed."
 #puts stderr ""
 #puts stderr "To use the latest NextFlow pipelines, please load the"
 #puts stderr "specific module like nfcore_chipseq, nfcore_rnaseq, etc. after loading"
-#puts stderr "blic-modules and nextflow. For example:"
+#puts stderr "blic-modules. For example:"
 #puts stderr ""
 #puts stderr "module load blic-modules"
-#puts stderr "module load nextflow"
 #puts stderr "module load nfcore_rnaseq"
 #puts stderr ""
 
@@ -37,20 +37,16 @@ module load java/1.8.0_92
 
 
 set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/20.07.1.5412/
-set              nextflow_pipelines     /shared/ucl/depts/cancer/apps/nextflow_pipelines
+#set              nextflow_pipelines     /shared/ucl/depts/cancer/apps/nextflow_pipelines
 
 setenv           NEXTFLOW_HOME     $nextflow_home
-setenv           NEXTFLOW_PIPELINES     $nextflow_pipelines
+#setenv           NEXTFLOW_PIPELINES     $nextflow_pipelines
 
 prepend-path     PATH              $::env(MODULESHOME)/bin
 prepend-path     PATH              $nextflow_home
-prepend-path     PATH              $nextflow_pipelines
+#prepend-path     PATH              $nextflow_pipelines
 
 
 #set-alias        nextflow_chipseq         "nextflow run $nextflow_pipelines/chipseq -profile myriad" 
 #set-alias	 nextflow_exoseq	  "nextflow run $nextflow_pipelines/NGI-ExoSeq -profile myriad"
 #set-alias        nextflow_rnaseq          "nextflow run $nextflow_pipelines/rnaseq -profile myriad"
-set-alias        nextflow_mergefastq      "nextflow run $nextflow_pipelines/merge_fastq -profile myriad"
-set-alias        nextflow_dge      	  "nextflow run $nextflow_pipelines/DGE -profile myriad"
-set-alias        nextflow_wgsalign    	  "nextflow run $nextflow_pipelines/wgsalign -profile myriad"
-set-alias        nextflow_rnaseq_variant_calling      "nextflow run $nextflow_pipelines/rnaseq_variant_calling -profile myriad"

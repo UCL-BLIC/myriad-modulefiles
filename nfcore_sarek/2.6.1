@@ -13,7 +13,24 @@ proc ModulesHelp { } {
     puts stderr ""
 }
 
-module-whatis "Adds nextflow (20.07.1.5412 version) and the nf-core sarek pipeline (2.6.1 version) to your environment."
+
+puts stderr ""
+puts stderr "#- You are loading the nfcore-sarek v2.6.1 module"
+puts stderr ""
+puts stderr "#- It is now available under the nfcore_sarek command"
+puts stderr ""
+puts stderr "#- We advise you to run it with the following arguments:"
+puts stderr "#-     --trim_fastq"
+puts stderr "#-     --no_gatk_spark"
+puts stderr "#-     -resume -with-tower"
+puts stderr ""
+puts stderr "#- Please check the nfcore documentation at https://nf-co.re/sarek/2.6.1"
+puts stderr ""
+
+
+
+module-whatis "Adds nextflow (20.07.1.5412 version) and the nf-core sarek pipeline (2.6.1 version) to your 
+environment."
 
 module unload java
 module load java/1.8.0_92
