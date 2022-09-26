@@ -17,6 +17,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds nextflow (22.04.5.5708 version) to your environment."
 
+module load gcc-libs/4.9.2
 module unload java
 module load java/openjdk-11/11.0.3u7/openj9
 
