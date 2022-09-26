@@ -9,16 +9,17 @@ proc ModulesHelp { } {
     puts stderr "This module adds nextflow and the nf-core clipseq pipeline (v1.0.0) to your environment."
     puts stderr ""
     puts stderr ""
-    puts stderr "NOTE:  This is nextflow version 20.07.1.5412"
+    puts stderr "NOTE:  This is nextflow version 22.04.5.5708"
     puts stderr ""
 }
 
-module-whatis "Adds nextflow (20.07.1.5412 version) and the nf-core clipseq pipeline (1.0.0 version) to your environment."
+module-whatis "Adds nextflow (22.04.5.5708 version) and the nf-core clipseq pipeline (1.0.0 version) to your environment."
 
 module unload java
 module load java/1.8.0_92
 module load blic-modules
-module load nextflow/20.07.1.5412
+module load nextflow/22.04.5.5708
+
 
 
 set              nextflow_home     /shared/ucl/depts/cancer/apps/nextflow/20.07.1.5412/
