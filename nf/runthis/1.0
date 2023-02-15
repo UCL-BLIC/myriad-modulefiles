@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Created on 2022-11-07
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nextflow and the nextflow runthis pipeline (1.0) to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is nextflow version 22.04.5.5708"
+    puts stderr ""
+}
+
+module-whatis "Adds nextflow (22.04.5.5708 version) and the nextflow runthis pipeline (1.0 version) to your environment."
+
+module load blic-modules
+module load nextflow/22.04.5.5708
+
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              /shared/ucl/depts/cancer/apps/nextflow/22.04.5.5708/
+prepend-path     PATH              /shared/ucl/depts/cancer/apps/nf/runthis/1.0/
+
+
+set-alias        runthis      "nextflow run /shared/ucl/depts/cancer/apps/nf/runthis/1.0/"
+

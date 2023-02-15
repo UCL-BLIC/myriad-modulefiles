@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Downloaded on 2023-02-13
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nextflow and the nf-core sarek pipeline (3.1.2) to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is nextflow version 22.10.5.5840"
+    puts stderr ""
+}
+
+module-whatis "Adds nextflow (22.10.5.5840 version) and the nf-core sarek pipeline (3.1.2 version) to your environment."
+
+module load blic-modules
+module load nextflow/22.10.5.5840
+
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              /shared/ucl/depts/cancer/apps/nextflow/22.10.5.5840/
+prepend-path     PATH              /shared/ucl/depts/cancer/apps/nfcore/sarek/3.1.2/workflow/
+
+
+set-alias        nfcore_sarek      "nextflow run /shared/ucl/depts/cancer/apps/nfcore/sarek/3.1.2/workflow/ -profile myriad"
+

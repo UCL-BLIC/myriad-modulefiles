@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2022-10-12
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nextflow (v22.04) nf-core tools (2.6-1) to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds nextflow (v22.04) and nf-core tools (2.6-1) to your environment."
+
+
+module load blic-modules
+module load nextflow/22.04.5.5708
+
+
+set root 			/shared/ucl/depts/cancer/apps/nf-core/2.6-1
+
+prepend-path PATH              	$::env(MODULESHOME)/bin
+prepend-path PATH    		$root/nfcoredev/bin
+
+

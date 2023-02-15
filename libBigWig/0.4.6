@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2022-07-07
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the libBigWig library (v0.4.6) to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds the libBigWig library (v0.4.6) to your environment."
+
+
+set root 			/shared/ucl/depts/cancer/apps/libBigWig
+
+prepend-path PATH              	 $::env(MODULESHOME)/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBDIR    $root/lib
+prepend-path C_INCLUDE_PATH     $root/include
+###prepend-path LIBRARY_PATH       $root/lib
+

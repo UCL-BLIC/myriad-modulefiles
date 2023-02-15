@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2019
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds annovar (2018-07-08) to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is version 2018-07-08"
+    puts stderr ""
+}
+
+module-whatis "Adds annovar (2018-07-08 version) to your environment."
+
+
+set              annovar     	/shared/ucl/depts/cancer/apps/annovar/2018-07-08/
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              $annovar
+
+

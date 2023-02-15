@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Created on 2022-12-06
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nextflow and the nextflow gsea pipeline (1.0) to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "NOTE:  This is nextflow version 22.04.5.5708"
+    puts stderr ""
+}
+
+module-whatis "Adds nextflow (22.04.5.5708 version) and the nextflow gsea pipeline (1.0 version) to your environment."
+
+##module purge
+module load blic-modules
+module load nextflow/22.04.5.5708
+##module load r/recommended
+
+prepend-path     PATH              $::env(MODULESHOME)/bin
+prepend-path     PATH              /shared/ucl/depts/cancer/apps/nextflow/22.04.5.5708/
+prepend-path     PATH              /shared/ucl/depts/cancer/apps/nf/gsea/1.0/
+
+
+set-alias        gsea      "nextflow run /shared/ucl/depts/cancer/apps/nf/gsea/1.0/"
+

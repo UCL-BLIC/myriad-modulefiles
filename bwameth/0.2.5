@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2022-08-22
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds BWA-meth (0.2.5) to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds BWA-meth (0.2.5) to your environment."
+
+
+
+set root 			/shared/ucl/depts/cancer/apps/bwameth/0.2.5
+
+prepend-path PATH              	$::env(MODULESHOME)/bin
+prepend-path PATH    		$root/bwamethdev/bin
+
+

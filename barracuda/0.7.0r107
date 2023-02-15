@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## L.C. on Myriad on 2022-08-22
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds barraCUDA (0.7.0r107) to your environment."
+    puts stderr "It also adds loads the cuda/9.0.176-patch4/gnu-4.9.2 module."
+    puts stderr ""
+}
+
+module-whatis "Adds barraCUDA (0.7.0r107) to your environment."
+
+
+module load beta-modules
+module load cuda/9.0.176-patch4/gnu-4.9.2
+
+
+set root 			/shared/ucl/depts/cancer/apps/barraCUDA/0.7.0r107/barracuda
+
+prepend-path PATH              	$::env(MODULESHOME)/bin
+prepend-path PATH    		$root/linux/release/
+
+
